@@ -21,11 +21,17 @@ export default function RootLayout({
    * you will get warnings because next-themes updates that element.
    * This property only applies one level deep, so it won't block
    * hydration warnings on other elements.
+   *
+   * The div with the class of "relative flex h-screen flex-col" is used to
+   * fix the data-overlay-container="true" from NextUI that is causing the
+   * layout to be broken.
    */
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+      <body className={`min-h-screen ${inter.className}`}>
+        <Providers>
+          <div className="relative flex h-screen flex-col">{children}</div>
+        </Providers>
       </body>
     </html>
   )
