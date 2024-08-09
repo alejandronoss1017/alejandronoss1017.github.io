@@ -21,13 +21,13 @@ export function ThemeSwitcher() {
       <Switch
         checked={theme === 'dark'}
         onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        startContent={<Icon name="Moon" />}
-        endContent={<Icon name="Sun" />}
+        startContent={<Icon name="Sun" />}
+        endContent={<Icon name="Moon" />}
         thumbIcon={({ isSelected, className }) =>
           isSelected ? (
-            <Icon name="Sun" size={16} className={className} />
-          ) : (
             <Icon name="Moon" size={16} className={className} />
+          ) : (
+            <Icon name="Sun" size={16} className={className} />
           )
         }
       />
